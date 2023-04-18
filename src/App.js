@@ -1,12 +1,23 @@
+import { HashRouter, Route, Routes} from "react-router-dom";
+import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
+import SignIn from "./components/SignIn/SignIn";
 //import logo from './logo.svg';
 //import './App.css';
 
-function App() {
-  return (
-    <h1>
-      Hello World!
-    </h1>
-  );
-}
+const App = () => (
+  <>
+      <HashRouter>
+      {/* <BrowserRouter> */}
+          <Routes>
+              <Route path={"/"} element={<Home/>}></Route>
+              <Route path={"login"} element={<Login/>}></Route>
+              <Route path={"signin"} element={<SignIn/>}></Route>
+              {/* <Route path={"/AnotherSite"} element={<AnotherSite />}></Route> */}
+          </Routes>
+      </HashRouter>
+      {/* </BrowserRouter> */}
+  </>
+)
 
 export default App;
