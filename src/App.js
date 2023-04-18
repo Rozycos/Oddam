@@ -11,8 +11,8 @@ const App = () => (
       {/* <BrowserRouter> */}
           <Routes>
               <Route path={"/"} element={<Home/>}></Route>
-              <Route path={"login"} element={<Login/>}></Route>
-              <Route path={"signin"} element={<SignIn/>}></Route>
+              <Route path={"logowanie"} element={<Login/>}></Route>
+              <Route path={"rejestracja"} element={<SignIn/>}></Route>
               {/* <Route path={"/AnotherSite"} element={<AnotherSite />}></Route> */}
           </Routes>
       </HashRouter>

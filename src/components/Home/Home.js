@@ -1,13 +1,13 @@
 import React from "react";
-import Navigation from "./HomeHeader/Navigation";
+import HomeHeader from "./HomeHeader/HomeHeader";
 
 const Home = () =>{
     
     return (
         <>
-            <h1>HOME</h1>
-            <header>
-                <Navigation />
+            <header className="header container">
+                <HomeHeader />
+                
             </header>
         </>
     )

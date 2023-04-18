@@ -1,0 +1,67 @@
+.header{
+    //display: flex;
+}
+
+.hero-image {
+    background-image: url(../../assets/Home-Hero-Image.jpg);
+    height: 60.1875rem;
+    background-position: -90%;
+    background-repeat: no-repeat;
+    background-size:contain;
+    position: relative;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    //transform: translate(-50%, -50%);
+  }
+
+.nav {
+    padding: 37px 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(30%, 0);
+
+    &__login{
+        display: flex;
+        justify-content: flex-end;
+        
+        &-link{
+            font-size: .875rem;
+            text-decoration: none;
+            color: $color-grey;
+
+        }
+
+        li{
+            padding: .5625rem .625rem;
+
+            &:nth-child(2){
+                border: .75px solid $color-yellow;
+
+            }
+        }
+    } 
+    &__nav{
+        font-size: 1.125rem;
+        padding: .7188rem 0;
+        color: $color-black;
+        display: flex;
+        text-decoration: none;
+
+        li{
+            padding: .5625rem 1.25rem;
+            
+            &:nth-child(1){
+                border: .75px solid $color-black;
+            }
+            &:last-child{
+                padding: .5625rem 0 0 1.25rem;
+            }
+        }
+    }
+}

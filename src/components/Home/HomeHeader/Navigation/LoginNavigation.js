@@ -6,20 +6,16 @@ import Navigation from "./Navigation";
 const LoginNavigation = () =>{
     return (
         <>
-            <nav>
-                <ul>
+            <nav className="nav">
+                <ul className="nav__login">
                     <li>
-                        <Link to="/login">Zaloguj</Link>
+                        <Link className="nav__login-link" to="/logowanie">Zaloguj</Link>
                     </li>
                     <li>
-                        <Link to="/signin">Załóż konto</Link>
+                        <Link className="nav__login-link nav__login-signin" to="/rejestracja">Załóż konto</Link>
                     </li>
                 </ul>
-            </nav>
-            <nav>
-                <ul>
-                    <Navigation/>    
-                </ul>    
+                <Navigation/> 
             </nav>
         </>
     )
