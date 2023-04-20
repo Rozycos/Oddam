@@ -1,5 +1,7 @@
 import React from "react";
 import HomeHeader from "./HomeHeader/HomeHeader";
+import ThreeColumns from "./ThreeColumns";
+import SimpleSteps from "./SimpleSteps";
 
 const Home = () =>{
     
@@ -7,8 +9,11 @@ const Home = () =>{
         <>
             <header className="header container">
                 <HomeHeader />
-                
             </header>
+            <main>
+                <ThreeColumns/>
+                <SimpleSteps/>
+            </main>
         </>
     )
 }

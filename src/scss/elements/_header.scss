@@ -1,30 +1,78 @@
 .header{
-    //display: flex;
+    max-height:59.5625rem;
+    //height: 100%;
 }
 
-.hero-image {
+.hero__image {
     background-image: url(../../assets/Home-Hero-Image.jpg);
     height: 60.1875rem;
     background-position: -90%;
+    transform: translate(0%, -15%);
     background-repeat: no-repeat;
     background-size:contain;
     position: relative;
+    z-index: -10;
 }
 
-.hero-text {
+.hero__text {
     text-align: center;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    //top: 0;
     left: 50%;
-    //transform: translate(-50%, -50%);
+    transform: translate(0, -200%);
+    width: 42.125rem;
+    z-index: 100;
+    //background-color: rgba(255,255,255, .9);
+    
+    h1{
+        font-size: 2.375rem;
+        color: $color-black;
+        text-align: center;
+        letter-spacing: -0.76px;
+        //height: 6.6875rem;
+        line-height: 55px;
+        //z-index: 100;
+        
+        &::after{
+            content: "";
+            background-image: url(../../assets/Decoration.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            display: block;
+            height: 2.0625rem;
+            padding: 1.5625rem;
+            margin-bottom: 4.0625rem;
+        }
+    }
+    //  button{
+    // //     outline: 0;
+    // //     display: inline-block;
+    // //     cursor: pointer;
+    // //     //z-index: 100;
+    // //     //margin-right: 44px;
+    // //inline-size: 20px;
+
+    //  }
+    
+    // span{
+    //     display: block;
+    //     height: 200px;
+    // }
+
+    
   }
 
+  .btn:nth-child(2){
+    margin-right: 2.75rem;
+}
+
 .nav {
-    padding: 37px 0 0 0;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(30%, 0);
+    padding: 2.3125rem 8.875rem 0 0;
+    // z-index: 100;
+    // position: absolute;
+    // top: 0;
+    // left: 50%;
+    // transform: translate(30%, 0);
 
     &__login{
         display: flex;
@@ -38,7 +86,7 @@
         }
 
         li{
-            padding: .5625rem .625rem;
+            padding: .5625rem;
 
             &:nth-child(2){
                 border: .75px solid $color-yellow;
@@ -51,6 +99,7 @@
         padding: .7188rem 0;
         color: $color-black;
         display: flex;
+        justify-content: flex-end;
         text-decoration: none;
 
         li{
