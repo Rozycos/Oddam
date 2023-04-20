@@ -8,7 +8,7 @@ import icon4 from "../../assets/Icon-4.svg"
 const SimpleSteps =()=>{
     return (
         <>
-            <section className="steps">
+            <section className="steps" name="steps">
                 <h2>Wystarczą 4 proste kroki</h2>
                 <div className="steps__container container">
                     <div className="steps__single">
