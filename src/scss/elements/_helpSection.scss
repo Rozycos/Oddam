@@ -1,0 +1,99 @@
+.help{
+
+    &__container{
+        max-width: 1344px;
+        margin: 0 auto;
+
+
+    }
+
+    &__title{
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+
+        h2{
+            width: 25%;
+            font-family: $font-base;
+            font-size: 2.375rem;
+            line-height: 3.4375rem;
+            color: $color-black;
+            text-align: center;
+            padding-top: 70px;
+    
+            &::after{
+                content: "";
+                background-image: url(../../assets/Decoration.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                display: block;
+                height: 2.0625rem;
+                //padding: 1.5625rem;
+                padding: 2.125rem;
+                //margin-bottom: 4.0625rem;
+            }
+        }
+    }
+}
+
+.tabs{
+    width: 100%;
+    //margin:0 auto;
+    
+    &__nav{
+        //list-style:none;
+        display: flex;
+        justify-content:space-evenly;
+        //align-items: center;
+        //height: 100%;
+        //height: 2rem;
+        //border-bottom: 0.4rem;
+        padding-top: 1rem;
+        //width: 98%;
+        //border: 2px solid $color-light-grey;
+        margin: 0 0 1rem;
+        
+        
+
+        li{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            width: 208px;
+            height: 79px;
+            font-family: $font-base;
+            font-size: 24px;
+            //padding: 5%;
+            //font-weight: 300;
+            color: $color-black;
+            //display: inline-block;
+            text-align: center;
+            line-height: 24px;
+            letter-spacing: 0px;
+            cursor: pointer;
+
+            // &:first-child{
+            //     line-height: 80px;
+            // }
+            
+
+        }
+
+        .active{
+            border: 0.75px solid $color-black;
+        }
+    }
+
+    &__info{
+        margin: 70px auto 66px;
+        max-width:640px;
+        font-family: $font-base;
+        font-size: 22px;
+        line-height: 30px;
+        letter-spacing: 0px;
+        color: $color-black;
+        text-align: center;
+        
+    }
+}

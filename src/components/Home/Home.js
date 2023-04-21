@@ -3,6 +3,7 @@ import HomeHeader from "./HomeHeader/HomeHeader";
 import ThreeColumns from "./ThreeColumns";
 import SimpleSteps from "./SimpleSteps";
 import AboutUs from "./HomeHeader/AboutUs";
+import HelpSection from "./HelpSection/HelpSection";
 
 const Home = () =>{
     
@@ -15,6 +16,7 @@ const Home = () =>{
                 <ThreeColumns/>
                 <SimpleSteps/>
                 <AboutUs/>
+                <HelpSection/>
             </main>
         </>
     )
