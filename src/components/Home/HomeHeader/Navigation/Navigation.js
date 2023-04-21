@@ -15,8 +15,8 @@ const Navigation = () =>{
                     <Link activeClass="active" className="scroll__link" to="steps" spy={true} smooth={true} duration={500}>O co chodzi?</Link>
                     {/* <Link to="/" spy={true} smooth={true} duration={500}>O co chodzi?</Link> */}
                 </li>
-                <li>O nas
-
+                <li>
+                    <Link activeClass="active" className="scroll__link" to="about" spy={true} smooth={true} duration={500}>O nas</Link>
                 </li>
                 <li>Fundacja i organizacje
 
