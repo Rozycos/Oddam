@@ -21,8 +21,8 @@ const Navigation = () =>{
                 <li>
                     <Link activeClass="active" className="scroll__link" to="help" spy={true} smooth={true} duration={500}>Fundacja i organizacje</Link>
                 </li>
-                <li>Kontakt
-
+                <li>
+                    <Link activeClass="active" className="scroll__link" to="contact" spy={true} smooth={true} duration={500}>Kontakt</Link>
                 </li>
             </ul>    
         </>

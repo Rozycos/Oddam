@@ -4,6 +4,7 @@ import ThreeColumns from "./ThreeColumns";
 import SimpleSteps from "./SimpleSteps";
 import AboutUs from "./HomeHeader/AboutUs";
 import HelpSection from "./HelpSection/HelpSection";
+import Contact from "./Contact/Contact";
 
 const Home = () =>{
     
@@ -17,6 +18,7 @@ const Home = () =>{
                 <SimpleSteps/>
                 <AboutUs/>
                 <HelpSection/>
+                <Contact/>
             </main>
         </>
     )
