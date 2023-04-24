@@ -100,28 +100,14 @@
     height: 328px;
 }
 
-
-
-// .login__form-field{
-//     display:flex;
-//     flex-direction: column;
-//     width:256px;
-//     padding-left: 1rem;
-//     padding-top: 40px;
-
-//     &-error{
-//         color: red;
-//     }
-
-
-    // height: 62px;
-    // padding: 0;
+.logout{
+    width: 414px;
+    text-align: center;
     
-    // &:first-child{
-    //     margin-top:40px;
-    // }
-    // // &:last-child{
-    // //     padding-bottom: 40px;
-    // // }
-//}
+    &__button{
+        padding:0;
+        margin:0;
+    }
+}
+
 
