@@ -1,6 +1,12 @@
 .header{
     max-height:59.5625rem;
-    //height: 100%;
+
+}
+
+.hero__section{
+    @media(max-width:1380px){
+        background-color: rgba(255,255,255,.8);
+    }
 }
 
 .hero__image {
@@ -11,7 +17,20 @@
     background-repeat: no-repeat;
     background-size:contain;
     position: relative;
-    z-index: -10;
+    z-index: -100;
+    @media(max-width:1900px){
+        background-position: -470px;
+        
+    }
+    @media(max-width:1380px){
+        background-color: rgba(255,255,255,.8);
+        width:100%;
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-position: -470px;
+
+    }
+
 }
 
 .hero__text {
@@ -23,13 +42,20 @@
     width: 42.125rem;
     z-index: 100;
     //background-color: rgba(255,255,255, .9);
+    @media(max-width:1380px){
+        text-align: center;
+        position: relative;
+        //top: 0;
+        left: 25%;
+        z-index: 100;
+
+    }
     
     h1{
         font-size: 2.375rem;
         color: $color-black;
         text-align: center;
         letter-spacing: -0.76px;
-        //height: 6.6875rem;
         line-height: 55px;
         //z-index: 100;
         
@@ -44,22 +70,6 @@
             margin-bottom: 4.0625rem;
         }
     }
-    //  button{
-    // //     outline: 0;
-    // //     display: inline-block;
-    // //     cursor: pointer;
-    // //     //z-index: 100;
-    // //     //margin-right: 44px;
-    // //inline-size: 20px;
-
-    //  }
-    
-    // span{
-    //     display: block;
-    //     height: 200px;
-    // }
-
-    
   }
 
   .btn:nth-child(2){
@@ -67,12 +77,12 @@
 }
 
 .nav {
+    position:relative;
     padding: 2.3125rem 8.875rem 0 0;
-    // z-index: 100;
-    // position: absolute;
-    // top: 0;
-    // left: 50%;
-    // transform: translate(30%, 0);
+
+    @media(max-width:1380px){
+        background-color: rgba(255,255,255,.8);
+    }
 
     &__login{
         display: flex;
