@@ -1,0 +1,127 @@
+.login{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 4.25rem;
+
+    h2{
+        font-family: $font-base;
+        font-size: 2.375rem;
+        line-height: 3.4375rem;
+        color: $color-black;
+        padding-top: 3.4375rem;
+
+        &::after{
+            content: "";
+            background-image: url(../../assets/Decoration.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            display: block;
+            height: 2.0625rem;
+            //padding: 1.5625rem;
+            padding: 2.125rem;
+            //margin-bottom: 4.0625rem;
+        }
+    }
+
+    &__column{
+        width:385px;
+        height: 235px;
+        background-color: $color-light-grey;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__form{
+        //padding: 40px 0;
+        &-field{
+            display:flex;
+            flex-direction: column;
+            width:256px;
+            //padding-left: 1rem;
+            //padding-top: 40px;
+        
+            &-error{
+                color: red;
+            }
+
+            // &:last-child{
+            //     padding-top: 30px;
+            // }
+
+        }
+        &-label{
+            font-family: $font-base, Semibold;
+            font-weight: 600;
+            font-size: 1rem;
+            //line-height: 40px;
+            letter-spacing: 0px;
+            color: $color-black;
+            text-align: left;
+            margin:40px 0 16px;
+
+        }
+
+    }
+
+    &__buttons{
+        display: flex;
+        justify-content: space-around;
+        width: 800px;
+    }
+
+    &__button{
+        margin-top: 84px;
+        background-color: rgba(255, 255, 255, 0);
+        border:none;
+        width: 150px;
+        height: 50px;
+        font-family: $font-base, Ligth;
+        font-size: 18px;
+        color: $color-black;
+        text-align: center;
+        line-height: 32px;
+        letter-spacing: 0px;
+        cursor: pointer;
+
+        &-active{
+            border: 0.75px solid $color-black;
+        }
+    }
+
+    &__nav{
+        color: $color-black;
+        border:none;
+    }
+}
+
+.signin{
+    height: 328px;
+}
+
+
+
+// .login__form-field{
+//     display:flex;
+//     flex-direction: column;
+//     width:256px;
+//     padding-left: 1rem;
+//     padding-top: 40px;
+
+//     &-error{
+//         color: red;
+//     }
+
+
+    // height: 62px;
+    // padding: 0;
+    
+    // &:first-child{
+    //     margin-top:40px;
+    // }
+    // // &:last-child{
+    // //     padding-bottom: 40px;
+    // // }
+//}
+

@@ -106,12 +106,13 @@
             padding: .5625rem 1.25rem;
             cursor: pointer;
             
-            &:nth-child(1){
-                border: .75px solid $color-black;
-            }
             &:last-child{
                 padding: .5625rem 0 0 1.25rem;
             }
         }
     }
+}
+
+.active{
+    border: .75px solid $color-black;
 }

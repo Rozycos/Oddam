@@ -7,7 +7,7 @@ const Navigation = () =>{
     return (
         <>
             <ul className="nav__nav">
-                <li>
+                <li className="active" >
                     {/* <NavLink to="/">Start</NavLink> */}
                     <Link to="/">Start</Link>
                 </li>
