@@ -50,9 +50,9 @@ const Login = () =>{
                 </div>
                 <div className="login__buttons">
                                     {/* <button className="form__submit-button" onClick={handleSubmit}>Wyślij</button> */}
-                                <button className="login__button" ><Link className="login__nav" to="/rejestracja">Załóż konto</Link></button>
-                                <button className="login__button login__button-active" onClick={handleSubmit}>Zaloguj się</button>
-                    </div>
+                    <button className="login__button" ><Link className="login__nav" to="/rejestracja">Załóż konto</Link></button>
+                    <button className="login__button login__button-active" onClick={handleSubmit}>Zaloguj się</button>
+                </div>
             </section>
         </>
     )

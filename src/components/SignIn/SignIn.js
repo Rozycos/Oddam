@@ -1,9 +1,35 @@
 import React from "react";
-//import LoginNavigation from "../Home/HomeHeader/Navigation";
 import Nav from "../Login/Nav";
 import { Link } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
 
 const SignIn = () =>{
+    const emailFormRules = /\S+@\S+\.\S+/;
+
+    const emailForm = useForm({
+        validate: (value) => emailFormRules.test(value) === false,
+
+    });
+
+    const passwordForm = useForm({
+        validate: (value) => value.length <= 5,
+    });
+
+    const rePasswordForm = useForm({
+        validate: (value) => value.length <= 5 || value !== passwordForm.value,
+    });
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        
+        if (emailForm.error === true || passwordForm.error === true || rePasswordForm.value === true) {
+            return alert("wpisz poprawne dane");
+        } else if (emailForm.value === "" || passwordForm.value === "" || rePasswordForm.value === "") {return alert ("wypełnij pole logowania");}
+        
+        else {return console.log("kliknięto wyślij i wysłano formularz")};
+
+    }
+
     return (
         <>
             <Nav/>
@@ -13,29 +39,24 @@ const SignIn = () =>{
                     <form className="login__form">
                         <div className="login__form-field">
                             <label className="login__form-label">Email</label>
-                            <input className="form__field-input" type="email" id="email" name="email" />    
-                                        {/* <input className="form__field-input" type="text" id="fname" name="fname" placeholder="Krzysztof" /> */}
-                                        {/* <input className="form__field-input" type="text" id="fname" name="fname" placeholder="Krzysztof" {...nameForm} />
-                                        <p className="form__field-error">{nameForm.error && "podaj od 2 do 15 liter, jeden wyraz"} </p> */}
+                            <input className="form__field-input" type="email" id="email" name="email" {...emailForm} error=""/>    
+                            <p className="form__field-error">{emailForm.error && "nieporawny email"} </p>            
                         </div>
                         <div className="login__form-field">
                             <label className="login__form-label">Hasło</label>
-                            <input className="form__field-input" type="password" id="password" name="password" />        
-                                        {/* <input className="form__field-input" type="email" id="email" name="email" placeholder="abc@xyz.pl" {...emailForm}/>
-                                        <p className="form__field-error">{emailForm.error && "nieporawny email"} </p> */}
+                            <input className="form__field-input" type="password" id="password" name="password" {...passwordForm} error=""/>        
+                            <p className="form__field-error">{passwordForm.error && "Minimum 6 znakow"} </p>
                         </div>
                         <div className="login__form-field">
                             <label className="login__form-label">Powtórz hasło</label>
-                            <input className="form__field-input" type="password" id="repassword" name="repassword" />        
-                                        {/* <input className="form__field-input" type="email" id="email" name="email" placeholder="abc@xyz.pl" {...emailForm}/>
-                                        <p className="form__field-error">{emailForm.error && "nieporawny email"} </p> */}
+                            <input className="form__field-input" type="password" id="repassword" name="repassword" {...rePasswordForm} error=""/>        
+                            <p className="form__field-error">{rePasswordForm.error && "hasla nie zgadzaja sie"} </p>            
                         </div>
                     </form>
-                    <div className="login__buttons">
-                                    {/* <button className="form__submit-button" onClick={handleSubmit}>Wyślij</button> */}
-                                <button className="login__button" ><Link className="login__nav" to="/rejestracja">Zaloguj się</Link></button>
-                                <button className="login__button login__button-active" >Załóż konto</button>
-                    </div>
+                </div>
+                <div className="login__buttons">
+                    <button className="login__button" ><Link className="login__nav" to="/logowanie">Zaloguj się</Link></button>
+                    <button className="login__button login__button-active" onClick={handleSubmit}>Załóż konto</button>
                 </div>
             </section>
             
