@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm } from "./useForm";
+import { useForm } from "../../../hooks/useForm";
 import facebookIcon from "../../../assets/Facebook.svg";
 import instagramIcon from "../../../assets/Instagram.svg";
 
