@@ -65,7 +65,7 @@
 
         strong{
             display: inline-block;
-            padding: 10px 0 0 0;
+            padding: 0.625rem 0 0 0;
             color:$color-black;
             //width: 50px;
         }
@@ -74,7 +74,7 @@
     &__description{
         text-align: center;
         font-size: 1rem;
-        line-height: 18px;
+        line-height: 1.125rem;
         color: $color-black;
         letter-spacing: 0px;
     }
