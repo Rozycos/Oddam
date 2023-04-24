@@ -26,7 +26,7 @@ const SignIn = () =>{
                         </div>
                         <div className="login__form-field">
                             <label className="login__form-label">Powtórz hasło</label>
-                            <input className="form__field-input" type="password" id="password" name="password" />        
+                            <input className="form__field-input" type="password" id="repassword" name="repassword" />        
                                         {/* <input className="form__field-input" type="email" id="email" name="email" placeholder="abc@xyz.pl" {...emailForm}/>
                                         <p className="form__field-error">{emailForm.error && "nieporawny email"} </p> */}
                         </div>

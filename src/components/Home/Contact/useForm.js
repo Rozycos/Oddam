@@ -9,7 +9,7 @@ export const useForm =({validate, init = ""})=>{
     };
 
     const onBlur =()=>{
-        setError(validate(value));
+        setError(!!validate(value));
     };
 
     return {value, error, onChange, onBlur};
