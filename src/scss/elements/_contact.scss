@@ -58,6 +58,8 @@
 
         &-error{
             color: red;
+            font-size: .9rem;
+            //border-bottom: 1px solid red;
         }
 
         &-label{
@@ -79,6 +81,16 @@
             border-bottom: 1px solid $color-black;
             background-color: rgba(255, 255, 255, 0);
 
+            &-error{
+                font-size: 1.125rem;
+                //line-height: 24px;
+                letter-spacing: 0px;
+                text-align: left;
+                border:none;
+                border-bottom: 1px solid red;
+                background-color: rgba(255, 255, 255, 0);
+            }
+
         }
 
         &-textarea{
@@ -88,7 +100,7 @@
             padding-top:2.5rem;
             width:100%;
             
-            textarea{
+            .textarea{
                 height: 7.5rem;
                 font-size: 1.125rem;
                 //line-height: 24px;
@@ -98,6 +110,18 @@
                 border-bottom: 1px solid $color-black;
                 background-color: rgba(255, 255, 255, 0);
                 resize: vertical;
+
+                &-error{
+                    height: 7.5rem;
+                    font-size: 1.125rem;
+                    //line-height: 24px;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    border:none;
+                    border-bottom: 1px solid red;
+                    background-color: rgba(255, 255, 255, 0);
+                    resize: vertical;
+                }
             }
         }
 
@@ -159,7 +183,15 @@
         }
     }
 
+}
 
+.success{
+    font-size: 1.125rem;
+    color: green;
+}
+
+.hide{
+    display: none;
 }
 
 

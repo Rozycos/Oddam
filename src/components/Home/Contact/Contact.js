@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useReducer, useState } from "react";
 import { useForm } from "../../../hooks/useForm";
+import { Timestamp, addDoc, collection } from "firebase/firestore";
+import {db} from "../../../firebase_setup/firebase";
+//import {getDb} from "../../../firebase_setup/db";
+//import { collection, addDoc } from "firebase/firestore";
+//import {firestore} from '../../../firebase_setup/firebase';
 import facebookIcon from "../../../assets/Facebook.svg";
 import instagramIcon from "../../../assets/Instagram.svg";
 
 const Contact =()=>{
+    const [success, setSuccess] = useState(false);
     // const [email, setEmail] = useState("");
     // const [error, setError] = useState(null);
     // // const [name, setName] = useState("");
@@ -39,16 +45,43 @@ const Contact =()=>{
         validate: (value) => value.length <= 120,
     });
 
-    const handleSubmit=(e)=>{
+    const [inputsContent, setInputsContent] = useReducer(
+        (state, newState) => ({ ...state, ...newState }),
+           {
+               name: "",
+               email: "",
+               subject: ""
+           }
+   );
+   const { name, email, subject} = inputsContent;
+
+   const handleInputChange = e => {
+    setInputsContent({
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e)=>{
         e.preventDefault();
         
-        if (nameForm.error === true || emailForm.error === true || subjectForm.error === true) {
-            return alert("dane z formularza niepoprawne");
-        } else if (nameForm.value === "" || emailForm.value === "" || subjectForm.value === "") {return alert ("wypełnij formularz");}
-        
-        else {return console.log("kliknięto wyślij i wysłano formularz")};
+            try {
+                const docRef = await addDoc(collection(db, 'contactForm'), {
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    created: Timestamp.now()
+                })
+          
+                console.log(docRef.id, name);
+                setSuccess(!success);
+                } catch (err) {
+                console.error(err)
+            }
+                
+        };
 
-    }
+    const formError = nameForm.error === true || emailForm.error === true || subjectForm.error === true || nameForm.value === "" || emailForm.value === "" || subjectForm.value === "";
+
 
     return (
         <>
@@ -56,28 +89,29 @@ const Contact =()=>{
                 <div className="contact__box">
                     <div className="contact__section">
                         <h2>Skontaktuj się z nami</h2>
+                        <p className={success ? "success" : "hide"}>Wiadomość została wysłana! Wkrótce się skontaktujemy.</p>
                         <div className="contact__column">
                             <form className="form">
                                 <div className="form__group">
                                     <div className="form__field">
                                         <label className="form__field-label">Wpisz swoje imię</label>
                                         {/* <input className="form__field-input" type="text" id="fname" name="fname" placeholder="Krzysztof" /> */}
-                                        <input className="form__field-input" type="text" id="fname" name="fname" placeholder="Krzysztof" {...nameForm} error="" />
-                                        <p className="form__field-error">{nameForm.error && "podaj od 2 do 15 liter, jeden wyraz"} </p>
+                                        <input className={nameForm.error ? "form__field-input-error" : "form__field-input"} type="text" id="name" name="name" placeholder="Krzysztof" onChange={handleInputChange} {...nameForm} error="" />
+                                        <p className="form__field-error">{nameForm.error && "Podane imię jest nieprawidłowe!"} </p>
                                     </div>
                                     <div className="form__field">
                                         <label className="form__field-label">Wpisz swój email</label>
-                                        <input className="form__field-input" type="email" id="email" name="email" placeholder="abc@xyz.pl" {...emailForm} error=""/>
-                                        <p className="form__field-error">{emailForm.error && "nieporawny email"} </p>
+                                        <input className={emailForm.error ? "form__field-input-error" : "form__field-input"} type="email" id="email" name="email" placeholder="abc@xyz.pl" onChange={handleInputChange} {...emailForm} error="" />
+                                        <p className="form__field-error">{emailForm.error && "Podany email jest nieprawidłowy!"} </p>
                                     </div>  
                                 </div>
                                 <div className="form__field-textarea">
                                     <label className="form__field-label">Wpisz swoją wiadomość</label>
-                                    <textarea id="subject" name="subject" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." {...subjectForm} error=""/>
-                                    <p className="form__field-error">{subjectForm.error && "wiadomość musi mieć co najmniej 120 znaków"} </p>
+                                    <textarea className={subjectForm.error ? "textarea-error" : "textarea"} id="subject" name="subject" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." {...subjectForm} error="" />
+                                    <p className="form__field-error">{subjectForm.error && "Wiadomość musi mieć co najmniej 120 znaków!"} </p>
                                 </div>
                                 <div className="form__submit">
-                                    <button className="form__submit-button" onClick={handleSubmit}>Wyślij</button>
+                                    <button className="form__submit-button" disabled={formError} onClick={handleSubmit} >Wyślij</button>
                                 </div>
                             </form>
                         </div>
