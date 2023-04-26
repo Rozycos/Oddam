@@ -1,10 +1,7 @@
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "../../../hooks/useForm";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
 import {db} from "../../../firebase_setup/firebase";
-//import {getDb} from "../../../firebase_setup/db";
-//import { collection, addDoc } from "firebase/firestore";
-//import {firestore} from '../../../firebase_setup/firebase';
 import facebookIcon from "../../../assets/Facebook.svg";
 import instagramIcon from "../../../assets/Instagram.svg";
 
@@ -38,41 +35,41 @@ const Contact =()=>{
 
     const emailForm = useForm({
         validate: (value) => emailFormRules.test(value) === false,
-
+        //value: value,
     });
 
     const subjectForm = useForm({
         validate: (value) => value.length <= 120,
     });
 
-    const [inputsContent, setInputsContent] = useReducer(
-        (state, newState) => ({ ...state, ...newState }),
-           {
-               name: "",
-               email: "",
-               subject: ""
-           }
-   );
-   const { name, email, subject} = inputsContent;
+//     const [inputsContent, setInputsContent] = useReducer(
+//         (state, newState) => ({ ...state, ...newState }),
+//            {
+//                name: "",
+//                email: "",
+//                subject: ""
+//            }
+//    );
+//    const { name, email, subject} = inputsContent;
 
-   const handleInputChange = e => {
-    setInputsContent({
-            [e.target.name]: e.target.value
-        });
-    };
+//    const handleInputChange = e => {
+//     setInputsContent({
+//             [e.target.name]: e.target.value
+//         });
+//     };
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
         
             try {
                 const docRef = await addDoc(collection(db, 'contactForm'), {
-                    name: name,
-                    email: email,
-                    subject: subject,
+                    name: nameForm.value,
+                    email: emailForm.value,
+                    subject: subjectForm.value,
                     created: Timestamp.now()
                 })
           
-                console.log(docRef.id, name);
+                console.log(docRef.id, nameForm.value);
                 setSuccess(!success);
                 } catch (err) {
                 console.error(err)
@@ -80,7 +77,7 @@ const Contact =()=>{
                 
         };
 
-    const formError = nameForm.error === true || emailForm.error === true || subjectForm.error === true || nameForm.value === "" || emailForm.value === "" || subjectForm.value === "";
+    const formError = nameForm.error === true || emailForm.error === true || subjectForm.error === true || nameForm.value === "" || emailForm.value === "" || subjectForm.value === "" || success !== false;
 
 
     return (
@@ -96,12 +93,12 @@ const Contact =()=>{
                                     <div className="form__field">
                                         <label className="form__field-label">Wpisz swoje imię</label>
                                         {/* <input className="form__field-input" type="text" id="fname" name="fname" placeholder="Krzysztof" /> */}
-                                        <input className={nameForm.error ? "form__field-input-error" : "form__field-input"} type="text" id="name" name="name" placeholder="Krzysztof" onChange={handleInputChange} {...nameForm} error="" />
+                                        <input className={nameForm.error ? "form__field-input-error" : "form__field-input"} type="text" id="name" name="name" placeholder="Krzysztof"  {...nameForm} error="" />
                                         <p className="form__field-error">{nameForm.error && "Podane imię jest nieprawidłowe!"} </p>
                                     </div>
                                     <div className="form__field">
                                         <label className="form__field-label">Wpisz swój email</label>
-                                        <input className={emailForm.error ? "form__field-input-error" : "form__field-input"} type="email" id="email" name="email" placeholder="abc@xyz.pl" onChange={handleInputChange} {...emailForm} error="" />
+                                        <input className={emailForm.error ? "form__field-input-error" : "form__field-input"} type="email" id="email" name="email" placeholder="abc@xyz.pl" {...emailForm} error="" />
                                         <p className="form__field-error">{emailForm.error && "Podany email jest nieprawidłowy!"} </p>
                                     </div>  
                                 </div>
