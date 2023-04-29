@@ -18,18 +18,15 @@ const Tabs = () => {
         <div className="outlet help__category--outlet">
             <TabContent id="fundations" activeTab={activeTab}>
                 <p className="tabs__info">{tabText}</p>
-                <HelpSectionTabs category={"fundations"}/>
-                <p>Fundacje</p>
+                <HelpSectionTabs category={"fundation"}/>
             </TabContent>
             <TabContent id="organisations" activeTab={activeTab}>
                 <p className="tabs__info">{tabText}</p>
-                <HelpSectionTabs category={"organisations"}/>
-                <p>Organizacje pozarządowe</p>
+                <HelpSectionTabs category={"organization"}/>
             </TabContent>
             <TabContent id="local" activeTab={activeTab}>
                 <p className="tabs__info">{tabText}</p>
                 <HelpSectionTabs category={"local"}/>
-                <p>Lokalne zbiórki</p>
             </TabContent>
         </div>
       </div>
