@@ -1,21 +1,19 @@
-import React from "react";
-//import React, { useContext }  from "react";
-//import { Link } from "react-router-dom";
-import Navigation from "./Navigation";
-//import { AppContext } from "../../../../context/UserProvider";
-//import { auth } from "../../../../firebase_setup/firebase";
-import LoginNavElements from "./LoginNavElements";
+import React, { useContext }  from "react";
+import { Link } from "react-router-dom";
+//import Navigation from "./Navigation";
+import { AppContext } from "../../../../context/UserProvider";
+import { auth } from "../../../../firebase_setup/firebase";
 //import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll";
 
-//const handleSignOut = () => auth.signOut();
+const handleSignOut = () => auth.signOut();
 
-const LoginNavigation = () =>{
-    //const {currentUser} = useContext(AppContext);  
+const LoginNavElements = () =>{
+    const {currentUser} = useContext(AppContext);  
 
     return (
         <>
-            <nav className="nav">
-                {/* <ul className="nav__login">
+            
+                <ul className="nav__login">
                 {currentUser === null ? (
                 <>
                     <li className="nav__element"></li>
@@ -37,12 +35,11 @@ const LoginNavigation = () =>{
                             </li>
                         </>
                     )}
-                </ul> */}
-                <LoginNavElements/>
-                <Navigation/> 
-            </nav>
+                </ul>
+                
+            
         </>
     )
 }
 
-export default LoginNavigation;
+export default LoginNavElements;

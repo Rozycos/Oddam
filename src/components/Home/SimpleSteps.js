@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../context/UserProvider";
 import { Link } from "react-router-dom";
 import icon1 from "../../assets/Icon-1.svg"
 import icon2 from "../../assets/Icon-2.svg"
@@ -6,6 +7,7 @@ import icon3 from "../../assets/Icon-3.svg"
 import icon4 from "../../assets/Icon-4.svg"
 
 const SimpleSteps =()=>{
+    const {currentUser} = useContext(AppContext);
     return (
         <>
             <section className="steps" name="steps">
@@ -44,7 +46,10 @@ const SimpleSteps =()=>{
                         <p className="steps__description">kurier przyjedzie w dogodnym terminie</p>
                     </div>
                 </div>
-                <button className="btn"><Link className="btn__primary" to="/logowanie">oddaj <br/>rzeczy</Link></button>
+                {/* <button className="btn"><Link className="btn__primary" to="/logowanie">oddaj <br/>rzeczy</Link></button> */}
+                {currentUser === null ? (<button className="btn"><Link className="btn__primary" to="/logowanie">oddaj <br/>rzeczy</Link></button>):(
+                        <button className="btn"><Link className="btn__primary" to="/oddaj-rzeczy">oddaj <br/>rzeczy</Link></button>
+                    )}
             </section>
         </>
     )

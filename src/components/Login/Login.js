@@ -48,7 +48,7 @@ const Login = () =>{
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
-                    navigate("/");
+                    navigate("/oddaj-rzeczy");
                     console.log(user);
                 })
                 .catch((error) => {

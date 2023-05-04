@@ -4,11 +4,12 @@ import Login from "./components/Login/Login";
 import SignIn from "./components/SignIn/SignIn";
 import Logout from "./components/Logout/Logout";
 import GiveBack from "./components/GiveBack/GiveBack";
+import UserProvider from "../src/context/UserProvider";
 //import logo from './logo.svg';
 //import './App.css';
 
 const App = () => (
-  <>
+  <UserProvider>
       <HashRouter>
       {/* <BrowserRouter> */}
           <Routes>
@@ -21,7 +22,7 @@ const App = () => (
           </Routes>
       </HashRouter>
       {/* </BrowserRouter> */}
-  </>
+  </UserProvider>
 )
 
 export default App;
