@@ -2,7 +2,7 @@ import React from "react";
 import HomeHeader from "./HomeHeader/HomeHeader";
 import ThreeColumns from "./ThreeColumns";
 import SimpleSteps from "./SimpleSteps";
-import AboutUs from "./HomeHeader/AboutUs";
+import AboutUs from "./AboutUs";
 import HelpSection from "./HelpSection/HelpSection";
 import Contact from "./Contact/Contact";
 
