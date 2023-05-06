@@ -1,7 +1,11 @@
 import React from "react";
 
 const StepFive=()=>{
-    return <h3>Krok 5</h3>
+    return (
+        <>
+            <div className="stepper__body"></div>
+        </>
+    )
 }
 
 export default StepFive;

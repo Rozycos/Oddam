@@ -9,11 +9,13 @@ import StepFive from "./StepFive";
 const Steps=()=>{
     return (
         <>
-            <StepOne/>
-            <StepTwo/>
-            <StepThree/>
-            <StepFour/>
-            <StepFive/>
+            <section className="stepper container">
+                <StepOne/>
+                <StepTwo/>
+                <StepThree/>
+                <StepFour/>
+                <StepFive/>
+            </section>
         </>
     )
 }

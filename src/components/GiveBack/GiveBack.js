@@ -7,7 +7,7 @@ import Steps from "./GiveStepper/Steps";
 const GiveBack = ()=>{
     return (
         <>
-            <header className="header container">
+            <header className="give__header container">
                 <div>
                     <GiveBackNav/>
                 </div>
