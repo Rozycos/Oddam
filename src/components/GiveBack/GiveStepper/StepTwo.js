@@ -1,19 +1,36 @@
 import React, { useState } from "react";
 import arrowDown from "../../../assets/Icon-Arrow-Down.svg";
+import arrowUp from "../../../assets/Icon-Arrow-Up.svg";
 
-const StepTwo=()=>{
+const StepTwo=({nextStep, prevStep})=>{
     const [title, setTitle] = useState("— wybierz —");
     const [show, setShow] = useState(false);
+    const [arrowImage, setArrowImage] = useState(arrowDown)
 
     const showDropdownMenu = (e) =>{
-        if (show===false) {setShow(true)
-        } else {setShow(false)};
+        if (show===false) {
+            setShow(true);
+            setArrowImage(arrowUp);
+        } else {
+            setShow(false);
+            setArrowImage(arrowDown);
+        };
     }
     
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
         setShow(false);
       };
+
+    const Continue = (e) => {
+        e.preventDefault();
+        nextStep();
+      };
+
+    const Previous = (e) => {
+        e.preventDefault();
+        prevStep();
+      }
 
     return (
         <>
@@ -52,12 +69,12 @@ const StepTwo=()=>{
                                         <div >
                                             {title}
                                         </div>
-                                        <img src={arrowDown}></img>
+                                        <img src={arrowImage} alt="strzałka"></img>
                                     </span>
                                 </div> 
                                 {/* <button onClick={showDropdownMenu}>v</button> */}
 
-                                <ul className={show === true ? "": "hide"} value={title} onClick={handleTitleChange}>
+                                <ul className={show === true ? "select__dropdown": "hide"} value={title} onClick={handleTitleChange}>
                                     {/* <option value="0"></option> */}
                                     <li value="1">1</li>
                                     <li value="2">2</li>
@@ -67,8 +84,8 @@ const StepTwo=()=>{
                                 </ul>
                             </form>
                     </div>
-                    <button className="btn__stepper">Wstecz</button>
-                    <button className="btn__stepper">Dalej</button>
+                    <button className="btn__stepper" onClick={Previous}>Wstecz</button>
+                    <button className="btn__stepper" onClick={Continue}>Dalej</button>
                 </div>
             </div>
         </>

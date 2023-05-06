@@ -1,26 +1,80 @@
-import React, { useState, useContext } from "react";
-//import { Stepper, Step, StepLabel, Button } from "@material-ui/core";
+import React, { useState } from "react";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import StepFour from "./StepFour";
 import StepFive from "./StepFive";
+import StepSix from "./StepSix";
 
 const Steps=()=>{
+    const [step, setStep] = useState(1);
+
+    // Funkcja przechodząca do następnego kroku Stepera
+    const prevStep=() =>{
+        setStep((step) => step - 1)
+    }
+
+    // Funkcja przechodząca do poprzedniego kroku Stepera
+    const nextStep=() =>{
+        setStep((step) => step + 1)
+    }
+
+    //console.log({step})
+    const renderSteps=()=>{
+        switch (step) {
+            case 1: 
+                return (
+                    <StepOne
+                        nextStep={nextStep}
+                    />
+                )
+            case 2: 
+                return (
+                    <StepTwo
+                        prevStep={prevStep}
+                        nextStep={nextStep}
+                    />
+                )
+            case 3: 
+                return (
+                    <StepThree
+                        prevStep={prevStep}
+                        nextStep={nextStep}
+                    />
+                )
+            case 4:
+                return (
+                    <StepFour
+                        prevStep={prevStep}
+                        nextStep={nextStep}
+                    />
+                )
+            case 5:
+                return (
+                    <StepFive
+                        prevStep={prevStep}
+                        nextStep={nextStep}
+                    />
+                )
+            case 6:
+                return (
+                    <StepSix/>
+                )
+                // never forget the default case, otherwise VS code would be mad!
+            default: 
+                // do nothing
+        }
+    }
     return (
         <>
-            <section className="stepper container">
-                <StepOne/>
-                <StepTwo/>
-                <StepThree/>
-                <StepFour/>
-                <StepFive/>
-            </section>
+            {renderSteps()}
         </>
     )
+    
+
 }
 
-export default Steps;
+
 
 
 // import React, { useState, useContext } from "react";
@@ -41,15 +95,7 @@ export default Steps;
 // function FormStepper() {
 //   const [activeStep, setActiveStep] = useState(0);
 //   const [personalInfo, setPersonalInfo] = useState({});
-//   const [contactInfo, setContactInfo] = useState({});
-
-//   // Funkcja przechodząca do następnego kroku Stepera
-//   function handleNext() {
-//     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-//   }
-
-//   // Funkcja przechodząca do poprzedniego kroku Stepera
-//   function handleBack() {
+//   const [contactInfo, setContactInfo] = o
 //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
 //   }
 
@@ -136,4 +182,4 @@ export default Steps;
 //   );
 // }
 //
-//export default Steps;
+export default Steps;

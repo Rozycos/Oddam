@@ -1,6 +1,13 @@
 import React from "react";
 
-const StepOne=()=>{
+
+const StepOne=({nextStep})=>{
+    
+    const Continue = (e) => {
+        e.preventDefault();
+        nextStep();
+      };
+
     return (
         <>
             <div className="stepper__info">
@@ -38,7 +45,7 @@ const StepOne=()=>{
                             Inne
                         </label>
                     </div>
-                    <button className="btn__stepper">Dalej</button>
+                    <button className="btn__stepper" onClick={Continue}>Dalej</button>
                 </div>
             </div>
         </>

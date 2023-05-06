@@ -49,6 +49,44 @@
         // width: 101rem;
         // margin: 0 auto;
     }
+
+    &__laststep{
+        text-align: center;
+        //position: relative;
+        //top: 0;
+        //left: 50%;
+        //transform: translate(0, -190%);
+        width: 42.125rem;
+        //z-index: 100;
+
+        
+        h2{
+            font-size: 2.375rem;
+            color: $color-black;
+            text-align: center;
+            letter-spacing: -0.76px;
+            line-height: 3.4375rem;
+            //z-index: 100;
+            //margin: 10rem 0;
+            
+            &::after{
+                content: "";
+                background-image: url(../../assets/Decoration.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                display: block;
+                height: 2.0625rem;
+                padding: 1.5625rem;
+            
+            }
+        }
+    }
+
+    &__position{
+        display: flex;
+        align-items: center;
+    }
+
 }
 
 .checkbox {
@@ -99,6 +137,7 @@
 
   .select{
     height: 3.0625rem;
+    
     &__title{
         text-align: left;
         font-size: 1.5rem;
@@ -106,15 +145,31 @@
         //line-height: 1.6875rem;
         color: $color-black;
         //padding: .5rem 0;
-        margin: 3.0625rem 0;
+        margin: 3.0625rem 0 0.9375rem;
         display: flex;
 
         p{
             font-size: 1.5rem;
             font-weight: 300;
             line-height: 1.6875rem;
-            color: #3C3C3C;
+            color: $color-black;
             padding: .5rem 0;
         }
     }
-  }
+
+    &__dropdown{
+        width: 5.355rem;
+        border: .75px solid $color-black;
+        transform: translate(525%);
+
+        li{
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1.6875rem;
+            color: $color-black;
+            padding: .5rem 0;
+            text-align: center;
+
+        }
+    }
+}
