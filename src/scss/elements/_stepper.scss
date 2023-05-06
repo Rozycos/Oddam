@@ -105,6 +105,16 @@
         font-weight: 300;
         //line-height: 1.6875rem;
         color: $color-black;
-        padding: .5rem 0;
+        //padding: .5rem 0;
+        margin: 3.0625rem 0;
+        display: flex;
+
+        p{
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1.6875rem;
+            color: #3C3C3C;
+            padding: .5rem 0;
+        }
     }
   }
