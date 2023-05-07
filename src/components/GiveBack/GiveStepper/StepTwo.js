@@ -18,7 +18,7 @@ const StepTwo=({nextStep, prevStep})=>{
     }
     
     const handleTitleChange = (e) => {
-        setTitle(e.target.value);
+        setTitle(e.target.dataset.value);
         setShow(false);
       };
 
@@ -76,11 +76,11 @@ const StepTwo=({nextStep, prevStep})=>{
 
                                 <ul className={show === true ? "select__dropdown": "hide"} value={title} onClick={handleTitleChange}>
                                     {/* <option value="0"></option> */}
-                                    <li value="1">1</li>
-                                    <li value="2">2</li>
-                                    <li value="3">3</li>
-                                    <li value="4">4</li>
-                                    <li value="5">5</li>
+                                    <li data-value="1">1</li>
+                                    <li data-value="2">2</li>
+                                    <li data-value="3">3</li>
+                                    <li data-value="4">4</li>
+                                    <li data-value="5">5</li>
                                 </ul>
                             </form>
                     </div>
