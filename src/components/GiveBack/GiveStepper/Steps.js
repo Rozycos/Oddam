@@ -8,6 +8,8 @@ import StepSix from "./StepSix";
 
 const Steps=()=>{
     const [step, setStep] = useState(1);
+    const [stepTwoData, setStepTwoData] = useState("— wybierz —");
+    const [stepThreeCityData, setStepThreeCityData] = useState("— wybierz —");
 
     // Funkcja przechodząca do następnego kroku Stepera
     const prevStep=() =>{
@@ -17,6 +19,14 @@ const Steps=()=>{
     // Funkcja przechodząca do poprzedniego kroku Stepera
     const nextStep=() =>{
         setStep((step) => step + 1)
+    }
+
+    const stepTwoHandler =(title)=>{
+        setStepTwoData(title);
+    }
+
+    const stepThreeCityHandler =(city)=>{
+        setStepThreeCityData(city);
     }
 
     //console.log({step})
@@ -33,6 +43,8 @@ const Steps=()=>{
                     <StepTwo
                         prevStep={prevStep}
                         nextStep={nextStep}
+                        stepTwoHandler={stepTwoHandler}
+                        stepTwoData={stepTwoData}
                     />
                 )
             case 3: 
@@ -40,6 +52,8 @@ const Steps=()=>{
                     <StepThree
                         prevStep={prevStep}
                         nextStep={nextStep}
+                        stepThreeCityHandler={stepThreeCityHandler}
+                        stepThreeCityData={stepThreeCityData}
                     />
                 )
             case 4:
@@ -54,6 +68,8 @@ const Steps=()=>{
                     <StepFive
                         prevStep={prevStep}
                         nextStep={nextStep}
+                        stepTwoData={stepTwoData}
+                        stepThreeCityData={stepThreeCityData}
                     />
                 )
             case 6:

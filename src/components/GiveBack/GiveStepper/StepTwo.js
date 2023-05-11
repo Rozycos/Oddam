@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import arrowDown from "../../../assets/Icon-Arrow-Down.svg";
 import arrowUp from "../../../assets/Icon-Arrow-Up.svg";
 
-const StepTwo=({nextStep, prevStep})=>{
-    const [title, setTitle] = useState("— wybierz —");
+const StepTwo=({nextStep, prevStep, stepTwoHandler, stepTwoData})=>{
+    const [title, setTitle] = useState(stepTwoData);
     const [show, setShow] = useState(false);
     const [arrowImage, setArrowImage] = useState(arrowDown)
 
@@ -25,12 +25,16 @@ const StepTwo=({nextStep, prevStep})=>{
     const Continue = (e) => {
         e.preventDefault();
         nextStep();
+        stepTwoHandler(title);
+       
       };
 
     const Previous = (e) => {
         e.preventDefault();
         prevStep();
-      }
+        stepTwoHandler(title);
+
+      }  
 
     return (
         <>

@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import arrowDown from "../../../assets/Icon-Arrow-Down.svg";
 import arrowUp from "../../../assets/Icon-Arrow-Up.svg";
 
-const StepThree=({nextStep, prevStep})=>{
-    const [city, setCity] = useState("— wybierz —");
+const StepThree=({nextStep, prevStep, stepThreeCityHandler, stepThreeCityData})=>{
+    const [city, setCity] = useState(stepThreeCityData);
     const [show, setShow] = useState(false);
     const [arrowImage, setArrowImage] = useState(arrowDown)
 
@@ -19,20 +19,22 @@ const StepThree=({nextStep, prevStep})=>{
     
     const handleCityChange = (e) => {
         setCity(e.target.dataset.value);
-        console.log((e.target.dataset.value));
+        //console.log((e.target.dataset.value));
         setShow(false);
     };
 
     const Continue = (e) => {
         e.preventDefault();
         nextStep();
+        stepThreeCityHandler(city);
       };
 
     const Previous = (e) => {
         e.preventDefault();
         prevStep();
+        stepThreeCityHandler(city);
       }
-console.log(city);
+//console.log(city);
 
     return (
         <>
@@ -66,6 +68,7 @@ console.log(city);
                                 </ul>
                                     <h5 className="checkbox__title-city">Komu chcesz pomóc?</h5>
                                     {/* <span className="checkbox__city"> */}
+                                    <div>
                                         <label className="checkbox__city">
                                             <input type="checkbox"/>
                                             <span>dzieciom</span>
@@ -86,6 +89,7 @@ console.log(city);
                                             <input type="checkbox"/>
                                             <span>osobom starszym</span>
                                         </label>
+                                    </div>
                                     {/* </span> */}
                                     <h5 className="checkbox__title-city">Wpisz nazwę konkretnej organizacji (opcjonalnie)</h5>
                                     <input className="select__input" type="text" id="oname" name="oname"/>

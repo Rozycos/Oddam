@@ -1,6 +1,6 @@
 import React from "react";
 
-const StepFive=({nextStep, prevStep})=>{
+const StepFive=({nextStep, prevStep, stepTwoData, stepThreeCityData})=>{
 
     const Continue = (e) => {
         e.preventDefault();
@@ -11,7 +11,7 @@ const StepFive=({nextStep, prevStep})=>{
         e.preventDefault();
         prevStep();
       }
-
+console.log(stepTwoData)
     return (
         <>
             <div className="stepper__body">
@@ -21,8 +21,8 @@ const StepFive=({nextStep, prevStep})=>{
                         <div>
                             <h5 className="checkbox__title-city">Oddajesz:</h5>
                             <ul  className="summary">
-                                <li>4 worki, ubrania w dobrym stanie, dzieciom</li>
-                                <li>dla lokalizacji: Warszawa</li>
+                                <li>{stepTwoData} worki, ubrania w dobrym stanie, dzieciom</li>
+                                <li>dla lokalizacji: {stepThreeCityData}</li>
                             </ul>
                         </div>
                         <div className="checkbox__title-container">
