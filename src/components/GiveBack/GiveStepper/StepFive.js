@@ -1,6 +1,6 @@
 import React from "react";
 
-const StepFive=({nextStep, prevStep, stepTwoData, stepThreeCityData})=>{
+const StepFive=({nextStep, prevStep, stepTwoData, stepThreeCityData, stepFourData})=>{
 
     const Continue = (e) => {
         e.preventDefault();
@@ -36,10 +36,10 @@ console.log(stepTwoData)
                                         <li>Numer telefonu</li>
                                     </ul>
                                     <ul className="summary__list">
-                                        <li>Prosta 51</li>
-                                        <li>Warszawa</li>
-                                        <li>90-209</li>
-                                        <li>473 839 483</li>
+                                        <li>{stepFourData.street}</li>
+                                        <li>{stepFourData.city}</li>
+                                        <li>{stepFourData.zipcode}</li>
+                                        <li>{stepFourData.phone}</li>
                                     </ul>
                                 </span>
                             </div>
@@ -52,9 +52,9 @@ console.log(stepTwoData)
                                         <li>Uwagi dla kuriera</li>
                                     </ul>
                                     <ul className="summary__list">
-                                        <li>17.10.2019</li>
-                                        <li>17:30</li>
-                                        <li>Uwagi dla kuriera</li>
+                                        <li>{stepFourData.date}</li>
+                                        <li>{stepFourData.hour}</li>
+                                        <li className="summary__list-comment">{stepFourData.comment}</li>
                                     </ul>
                                 </span>
                             </div>

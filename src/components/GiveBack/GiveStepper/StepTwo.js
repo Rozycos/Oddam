@@ -89,7 +89,7 @@ const StepTwo=({nextStep, prevStep, stepTwoHandler, stepTwoData})=>{
                             </form>
                     </div>
                     <button className="btn__stepper" onClick={Previous}>Wstecz</button>
-                    <button className="btn__stepper" onClick={Continue}>Dalej</button>
+                    <button className="btn__stepper" onClick={Continue} disabled={title==="— wybierz —"? true:false}>Dalej</button>
                 </div>
             </div>
         </>

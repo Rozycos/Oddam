@@ -8,8 +8,10 @@ import StepSix from "./StepSix";
 
 const Steps=()=>{
     const [step, setStep] = useState(1);
+    const [stepOneData, setStepOneData] = useState('');
     const [stepTwoData, setStepTwoData] = useState("— wybierz —");
     const [stepThreeCityData, setStepThreeCityData] = useState("— wybierz —");
+    const [stepFourData, setStepFourData] = useState({ street: " ", city: " ", zipcode: " ", phone: " ", date: " ", hour:"", comment:" "});
 
     // Funkcja przechodząca do następnego kroku Stepera
     const prevStep=() =>{
@@ -21,12 +23,20 @@ const Steps=()=>{
         setStep((step) => step + 1)
     }
 
+    const stepOneHandler=()=>{
+        setStepOneData();
+    }
+    
     const stepTwoHandler =(title)=>{
         setStepTwoData(title);
     }
 
     const stepThreeCityHandler =(city)=>{
         setStepThreeCityData(city);
+    }
+
+    const stepFourHandler =(form)=>{
+        setStepFourData(form );
     }
 
     //console.log({step})
@@ -36,6 +46,8 @@ const Steps=()=>{
                 return (
                     <StepOne
                         nextStep={nextStep}
+                        stepOneData={stepOneData}
+                        stepOneHandler={stepOneHandler}
                     />
                 )
             case 2: 
@@ -61,6 +73,8 @@ const Steps=()=>{
                     <StepFour
                         prevStep={prevStep}
                         nextStep={nextStep}
+                        stepFourHandler={stepFourHandler}
+                        stepFourData={stepFourData}
                     />
                 )
             case 5:
@@ -70,6 +84,7 @@ const Steps=()=>{
                         nextStep={nextStep}
                         stepTwoData={stepTwoData}
                         stepThreeCityData={stepThreeCityData}
+                        stepFourData={stepFourData}
                     />
                 )
             case 6:

@@ -4,7 +4,7 @@
 }
 
 .hero__section{
-    @media(max-width:1380px){
+    @media(max-width:1780px){
         background-color: rgba(255,255,255,.8);
     }
 }
@@ -18,18 +18,25 @@
     background-size:contain;
     position: relative;
     z-index: -100;
-    @media(max-width:1900px){
-        background-position: -470px;
+    // @media(max-width:1900px){
+    //     background-position: -470px;
+    //     background-color: rgba(255,255,255,.8);
+    //     //z-index: -100;
         
-    }
-    @media(max-width:1380px){
-        background-color: rgba(255,255,255,.8);
-        width:100%;
-        background-repeat: no-repeat;
-        background-size:cover;
-        background-position: -470px;
+    // }
+    // @media(max-width:1800px){
+    //     //background-position: -470px;
+    //     background-color: rgba(255,255,255,.8);
+        
+    // }
+     @media(max-width:1380px){
+        //background-color: rgba(255,255,255,.8);
+    //     width:100%;
+    //     background-repeat: no-repeat;
+         background-size:cover;
+         background-position: -470px;
 
-    }
+     }
 
 }
 
@@ -44,9 +51,10 @@
     //background-color: rgba(255,255,255, .9);
     @media(max-width:1380px){
         text-align: center;
-        position: relative;
+        //position: relative;
         //top: 0;
-        left: 25%;
+        left: 10%;
+        //margin: 0 auto;
         z-index: 100;
 
     }
@@ -80,7 +88,7 @@
     position:relative;
     padding: 2.3125rem 8.875rem 0 0;
 
-    @media(max-width:1380px){
+    @media(max-width:1780px){
         background-color: rgba(255,255,255,.8);
     }
 
