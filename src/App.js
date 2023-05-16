@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import SignIn from "./components/SignIn/SignIn";
@@ -10,8 +10,8 @@ import UserProvider from "../src/context/UserProvider";
 
 const App = () => (
   <UserProvider>
-      <HashRouter>
-      {/* <BrowserRouter> */}
+      {/* <HashRouter> */}
+      <BrowserRouter>
           <Routes>
               <Route path={"/"} element={<Home/>}></Route>
               <Route path={"logowanie"} element={<Login/>}></Route>
@@ -20,8 +20,8 @@ const App = () => (
               <Route path={"oddaj-rzeczy"} element={<GiveBack/>}></Route>
               {/* <Route path={"/AnotherSite"} element={<AnotherSite />}></Route> */}
           </Routes>
-      </HashRouter>
-      {/* </BrowserRouter> */}
+      {/* </HashRouter> */}
+      </BrowserRouter>
   </UserProvider>
 )
 
